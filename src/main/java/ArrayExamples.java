@@ -40,9 +40,9 @@ public class ArrayExamples {
         System.out.println("Total:" + total);
 
         double maximum = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if(array[i] > maximum){
-                maximum = array[i];
+        for (double v : array) {
+            if (v > maximum) {
+                maximum = v;
             }
         }
         System.out.println("Maximum:" + maximum);
