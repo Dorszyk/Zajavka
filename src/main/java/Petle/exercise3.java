@@ -3,9 +3,7 @@ package Petle;
 public class exercise3 {
     public static void main(String[] args) {
 
-        printChristmasTree('#', 90);
-        printChristmasTree('*', 130);
-        printChristmasTree('^', 210);
+        printChristmasTree('#', 9);
 
 
     }

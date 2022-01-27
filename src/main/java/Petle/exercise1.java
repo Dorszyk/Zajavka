@@ -3,8 +3,8 @@ package Petle;
 public class exercise1 {
     public static void main(String[] args) {
 
-        System.out.println("factorialLoop " + factorialLoop(5));
-        System.out.println("factorialLoop " + factorialLoop(9));
+        System.out.print("factorialLoop " + factorialLoop(5));
+        System.out.print("factorialLoop " + factorialLoop(9));
 
     }
 
