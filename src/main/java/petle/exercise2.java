@@ -1,4 +1,4 @@
-package Petle;
+package petle;
 
 public class exercise2 {
 

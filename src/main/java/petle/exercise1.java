@@ -1,4 +1,4 @@
-package Petle;
+package petle;
 
 public class exercise1 {
     public static void main(String[] args) {
