@@ -1,60 +1,78 @@
 package warsztat1_genericMethod.project;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CustomQueue<T> {
-    private  final Deque<T> queue;
-    private final Map<String,Integer> counterMap = new HashMap<>();
+    private final Deque<T> queue;
+    private final Deque<T> queueVip;
 
-    public CustomQueue(Deque<T> queue) {
+    private final Map<String, Integer> counterMap = new HashMap<>();
+
+    public CustomQueue(Deque<T> queue, Deque<T> queueVip) {
         this.queue = queue;
+        this.queueVip = queueVip;
     }
 
-    public void processCommand(String command) {
-        //"ADD PERSON(Tomasz_Romański)"
-        // "LEAVE PERSON(Tomasz_Romański_2)"
-        //  "PROCESS"
-
-        if(command.contains("ADD PERSON")){
-            handleAddPerson(command);
-        } else if (command.contains("LEAVE PERSON")) {
-            handleLeavePerson(command);
-        } else if (command.contains("PROCESS")) {
-            handleProcess(command);
-        }else {
-            throw new RuntimeException("O co Ci chodzi z komendą" + command);
-        }
+    public void welcomeVip(T item) {
+        boolean isAdded = queueVip.offer(item);
+        System.out.printf("%s came to the vip queue: %s%n", item, isAdded);
+        printTotalQueue();
     }
 
-    private void handleAddPerson(String command) {
-
-        String personKey = command
-                .replace("ADD PERSON(", "")
-                .replace(")", "");
-
-        String[] split = personKey
-         .split("_");
-
-        if(split.length == 2){
-            String name = split [0];
-            String surname = split [1];
-            Integer counter = getAndIncrementCounter(personKey);
-            System.out.println(name + " " + surname + " " + counter);
-        }
+    public void welcome(T item) {
+        boolean isAdded = queue.offer(item);
+        System.out.printf("%s came to the  queue: %s%n", item, isAdded);
+        printTotalQueue();
     }
-    private Integer getAndIncrementCounter(String personKey) {
 
-        Integer tempCounter = counterMap.getOrDefault(personKey,0);
-        counterMap.put(personKey,++tempCounter);
+    private Integer getAndIncrementCounter(String key) {
+        Integer tempCounter = counterMap.getOrDefault(key, 0);
+        counterMap.put(key, ++tempCounter);
         return tempCounter;
     }
 
-    private void handleLeavePerson(String command) {
-
+    public void enter() {
+        if (queueVip.isEmpty()) {
+            System.out.printf("No items in VIP the queue");
+        } else {
+            handleEnterByQueue(queueVip);
+            return;
+        }
+        if (queue.isEmpty()) {
+            System.out.println("No items in the queue");
+            System.out.println();
+            return;
+        }
+        handleEnterByQueue(queue);
     }
 
-    private void handleProcess(String command) {
+    private void handleEnterByQueue(Deque<T> queue) {
+        T itemEntered = queue.peek();
+        System.out.printf("Processing queue: %s arrived at the store.%n", itemEntered);
+        printTotalQueue();
+    }
+
+    public void leave(T item) {
+        if (queueVip.contains(item)) {
+            queueVip.remove(item);
+            System.out.printf("Leaving vip queue: %s%n", item);
+            printTotalQueue();
+        } else if (queue.contains(item)) {
+            queue.remove(item);
+            System.out.printf("Leaving queue: %s%n", item);
+            printTotalQueue();
+        } else {
+            System.out.println(item + "currently is not in the queue.\n");
+        }
+    }
+
+    private void printTotalQueue() {
+        ArrayList<T> totalList = new ArrayList<>(queueVip);
+        totalList.addAll(queue);
+        System.out.println(totalList);
+        System.out.println();
     }
 }

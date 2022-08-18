@@ -6,7 +6,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        CustomQueue<Person> queue = new CustomQueue<>(new ArrayDeque<>());
+        CustomQueue<Person> queue = new CustomQueue<>(new ArrayDeque<>(), new ArrayDeque<>());
+        PersonCommandProcessor personCommandProcessor = new PersonCommandProcessor(queue);
         List<String> commandList = List.of(
                 "ADD PERSON(Tomasz_Romański)",
                 "ADD PERSON(Rafał_Adamczuk)",
@@ -22,7 +23,7 @@ public class Main {
         );
 
         for (String command : commandList) {
-            queue.processCommand(command);
+           personCommandProcessor.processCommand(command);
         }
     }
 }
