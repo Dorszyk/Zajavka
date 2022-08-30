@@ -28,7 +28,7 @@ public class CustomQueue<T> {
         printTotalQueue();
     }
 
-    private Integer getAndIncrementCounter(String key) {
+    public Integer getAndIncrementCounter(String key) {
         Integer tempCounter = counterMap.getOrDefault(key, 0);
         counterMap.put(key, ++tempCounter);
         return tempCounter;
@@ -36,7 +36,7 @@ public class CustomQueue<T> {
 
     public void enter() {
         if (queueVip.isEmpty()) {
-            System.out.printf("No items in VIP the queue");
+            System.out.println("No items in VIP the queue");
         } else {
             handleEnterByQueue(queueVip);
             return;
@@ -50,7 +50,7 @@ public class CustomQueue<T> {
     }
 
     private void handleEnterByQueue(Deque<T> queue) {
-        T itemEntered = queue.peek();
+        T itemEntered = queue.poll();
         System.out.printf("Processing queue: %s arrived at the store.%n", itemEntered);
         printTotalQueue();
     }
