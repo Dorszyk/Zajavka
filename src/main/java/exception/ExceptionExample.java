@@ -6,6 +6,10 @@ public class ExceptionExample {
 
         try {
             printSomething("Throw");
+        } catch (MySubException e) {
+            System.out.println("MySubException was throw: " + e.getMessage());
+        } catch (MyException e) {
+        System.out.println("MyException was throw: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Exception was throw: " + e.getMessage());
 
@@ -33,7 +37,7 @@ public class ExceptionExample {
 
     private static void printSomething(final String input) throws MyException {
         if ("Throw".equalsIgnoreCase(input)){
-        throw new MyException();
+        throw new MyException("My SubException was thrown");
     }else {
             System.out.println(input);
         }
