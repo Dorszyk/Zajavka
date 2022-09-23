@@ -2,6 +2,7 @@ package data;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public class PeriodExamples {
     public static void main(String[] args) {
@@ -23,6 +24,9 @@ public class PeriodExamples {
         System.out.println(Period.between(localDate2,localDate1));
         System.out.println(Period.between(localDate2,localDate2));
         System.out.println(Period.between(localDate1,localDate1));
+
+        System.out.println(ChronoUnit.MONTHS.between(localDate1,localDate2));
+        System.out.println(ChronoUnit.YEARS.between(localDate1,localDate2));
 
 
 
