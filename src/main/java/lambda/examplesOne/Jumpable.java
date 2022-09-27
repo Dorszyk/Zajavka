@@ -1,4 +1,4 @@
-package lambda;
+package lambda.examplesOne;
 
 
 @FunctionalInterface
