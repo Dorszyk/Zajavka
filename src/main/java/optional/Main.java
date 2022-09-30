@@ -7,8 +7,12 @@ public class Main {
     public static void main(String[] args) {
 
         Optional<String> empty = Optional.empty();
-        Optional<String> ofFull = Optional.of("Helloo");
+        Optional<String> ofFull = Optional.of("Hello");
         Optional<String> ofNullableNull = Optional.ofNullable(null);
+
+        System.out.println("ofFull.isEmpty :" + ofFull.isEmpty());
+        System.out.println("ofFull.isPresent :" + ofFull.isPresent());
+
 
         String variable1 = empty.orElse(defaualt1());
         String variable2 = empty.orElseGet(() -> defaualt2());
