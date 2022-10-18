@@ -1,16 +1,15 @@
 package warsztat1_genericMethod.upperBound_wildcard;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class UpperBoundWildcard {
 
     public static void main(String[] args) {
 
-        List<Animal> animals = new ArrayList<>();
-        List<Dog> dogs = new ArrayList<>();
-        List<Monkey> monkeys = new ArrayList<>();
-        List<String> strings = new ArrayList<>();
+        List<Animal> animals = new ArrayList<>(Collections.singleton(new Dog("Pusio",2)));
+        List<Dog> dogs = new ArrayList<>(Collections.singleton(new Dog("Burek", 18)));
+        List<Monkey> monkeys = new ArrayList<>(Collections.singleton(new Monkey("Małpa",12)));
+        List<String> strings = new ArrayList<>(Collections.singleton(new String("String")));
         List<ImplementingVoiceable> implementingVoiceables = new ArrayList<>();
 
 
@@ -25,8 +24,9 @@ public class UpperBoundWildcard {
 
     private static void print(List<?> list){
         for (Object o : list) {
-            System.out.println(o);
+            System.out.println(list);
         }
+
     }
 
 }
