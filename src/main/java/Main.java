@@ -8,12 +8,12 @@ public class Main {
         Animal animal = new Animal();
         Cat cat = new Cat();
 
-        Animal catnimal = new Cat();
+        Animal catAnimal = new Cat();
 
         animal.eat("Ala");
         cat.eat();
-        catnimal.eat("Maja");
-        ((Cat)catnimal).catsVoices();
+        catAnimal.eat("Maja");
+        ((Cat)catAnimal).catsVoices();
 
 
         int result = 0;
