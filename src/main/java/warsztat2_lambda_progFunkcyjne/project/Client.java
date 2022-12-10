@@ -18,6 +18,10 @@ public class Client implements  Comparable<Client>{
         this.city = city;
     }
 
+    public String getYearOfBirth(){
+        return pesel.toString().substring(0,2);
+    }
+
     public String getId() {
         return id;
     }
@@ -36,6 +40,13 @@ public class Client implements  Comparable<Client>{
     @Override
     public int hashCode() {
         return Objects.hash(pesel);
+    }
+
+
+    @Override
+    public String toString() {
+        return "id='" + id +
+                '}';
     }
 }
 

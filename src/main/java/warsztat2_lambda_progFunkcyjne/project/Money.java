@@ -24,7 +24,13 @@ public class Money {
         EUR
     }
 
-
+    @Override
+    public String toString() {
+        return "Money{" +
+                "value=" + value +
+                ", currency=" + currency +
+                '}';
+    }
 }
 
 

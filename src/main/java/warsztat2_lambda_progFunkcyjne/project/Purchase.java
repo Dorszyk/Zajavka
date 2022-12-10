@@ -10,7 +10,7 @@ public class Purchase {
     private final Delivery delivery;
     private final Payment payment;
     private final LocalDate when;
-    private Status status = Status.PAID;
+    private final Status status;
 
     public Purchase(Client buyer, Product product, long quantity, Delivery delivery, Payment payment, LocalDate when) {
         this.buyer = buyer;
@@ -19,6 +19,21 @@ public class Purchase {
         this.delivery = delivery;
         this.payment = payment;
         this.when = when;
+        this.status = Status.PAID;
+    }
+
+    public Purchase(Purchase purchase, Status status) {
+        this.buyer = purchase.buyer;
+        this.product = purchase.product;
+        this.quantity = purchase.quantity;
+        this.delivery = purchase.delivery;
+        this.payment = purchase.payment;
+        this.when = purchase.when;
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     public Product getProduct() {
@@ -51,5 +66,15 @@ public class Purchase {
         PAID,
         SENT,
         DONE
+    }
+
+    @Override
+    public String toString() {
+        return ", quantity=" + quantity +
+                ", delivery=" + delivery +
+                ", payment=" + payment +
+                ", when=" + when +
+                ", status=" + status +
+                '}';
     }
 }

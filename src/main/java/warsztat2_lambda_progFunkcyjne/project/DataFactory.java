@@ -55,7 +55,7 @@ public class DataFactory {
 
         // Purchase
         purchaseList.add(new Purchase(client0, product1, 7, Purchase.Delivery.DHL, Purchase.Payment.BLIK, LocalDate.of(2020, 7, 12)));
-        purchaseList.add(new Purchase(client0, product17, 2, Purchase.Delivery.IN_POST, Purchase.Payment.BLIK, LocalDate.of(2020, 2, 12)));
+        purchaseList.add(new Purchase(client0, product17, 23, Purchase.Delivery.IN_POST, Purchase.Payment.BLIK, LocalDate.of(2020, 2, 12)));
         purchaseList.add(new Purchase(client1, product18, 1, Purchase.Delivery.IN_POST, Purchase.Payment.BLIK, LocalDate.of(2020, 1, 5)));
         purchaseList.add(new Purchase(client2, product19, 3, Purchase.Delivery.UPS, Purchase.Payment.CASH, LocalDate.of(2020, 3, 6)));
         purchaseList.add(new Purchase(client1, product23, 7, Purchase.Delivery.IN_POST, Purchase.Payment.CASH, LocalDate.of(2020, 7, 2)));
